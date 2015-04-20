@@ -1,0 +1,24 @@
+<%= render 'navigation'%>
+<center><h1>Berita Terbaru</h1></center>
+<% @article.each do |article| %>
+
+	<div class="article"><%= link_to image_tag(article.picture.url(:thumb)),article.picture.url(:original), class: "fancybox"%>
+	<div class="title"><%= article.title %>		
+    <div class="content"><%= article.content.truncate(40) %>
+    		<%= link_to 'read more', article_path(article.id) %>
+     </div>
+     </div>
+<span><%= link_to 'REMOVE', article_path(article.id),method: "DELETE", data: {confirm: 'Delete this data'} %></span>
+</div> 
+ 
+    	 <h4>
+<% if !current_admin %>
+<%= link_to 'Log-in', new_session_path %>
+<% else %>
+Hello <%= current_admin.username %>
+<%= link_to 'Log-Out', session_path(current_admin.id), method: "DELETE" %>
+<% end %>
+
+</h4>
+ <%end%>
+ 

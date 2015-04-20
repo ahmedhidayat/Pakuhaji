@@ -1,0 +1,28 @@
+<%= render 'navigation'%>
+<%= form_for @admin do |f| %>
+ <div id="main-content" class="col-xs-12 col-sm-100 main pull-right">
+  <form class="form-horizontal" role="form">
+   <div class="form-group">
+      <label class="control-label col-sm-2" for="pwd">Username:</label>
+      <div class="col-sm-3">          
+        <%= f.text_field :username, :size => 20, :class => 'form-control', :placeholder=>'Masukan Username' %> 
+      </div>
+    </div>
+    <br>
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="pwd">Password:</label>
+      <div class="col-sm-3">
+      <%= f.password_field :password, :size => 20, :class => 'form-control', :placeholder=>'Masukan Password' %> 
+    </div>
+    </div>
+<div class="form-group">        
+      <div class="col-sm-offset-1 col-sm-10">
+        <button type="submit" class="btn btn-default">Submit</button>
+		      </div>
+		    </div>
+    </div>
+
+
+<% end %>
+
+
