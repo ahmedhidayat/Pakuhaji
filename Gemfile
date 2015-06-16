@@ -41,6 +41,14 @@ gem 'rmagick','~> 2.13.1'
 #gem fancybox
 gem 'fancybox2-rails'
 
+#encrypt password
+gem 'bcrypt-ruby', require: 'bcrypt'
+
+#gem bootstrap datetime picker
+gem 'bootstrap-datetimepicker-rails'
+
+gem 'debugger'
+
 
 
 # Use ActiveModel has_secure_password

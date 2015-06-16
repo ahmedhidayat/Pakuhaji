@@ -1,12 +1,31 @@
 Pakuhaji::Application.routes.draw do
- 
+
+  get "homes_profile" => "homes#profile", :as => "profile_home"
+  get "homes_fasility" => "homes#fasility", :as => "fasility_home"
+  get "homes_game" => "homes#game", :as => "game_home"
+  get "homes_packet" => "homes#packet", :as => "packet_home"
+  get "homes_gallery" => "homes#gallery", :as => "gallery_home"
+  
   
   get "sign_up" => "admins#new", :as => "sign_up"
   get "login" => "admins#new", :as => "login"
  resources :sessions
  resources :admins
  resources :articles
- root :to => "articles#index"
+ resources :homes
+ resources :profiles
+ resources :fasilities
+ resources :games
+ resources :packets
+ resources :galleries
+ resources :sliders
+ resources :vacation_packets
+ resources :food_kids
+ resources :food_adults
+ resources :additional_packets
+ resources :reservations
+
+ root :to => "homes#index"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

@@ -1,4 +1,24 @@
-<%= render 'navigation'%>
- <h3><%= @article.title %></h3>
+<%= render 'homes/navigation'%>
+<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+<div class="row">
+    	<div class="col-sm-1">
+		</div> 
+		<div class="col-sm-11">
+			<div class="container"> 
+  				<ul class="list-group">	
+  					<li class="list-group-item">		
+				<h1><center><%= @article.title %></center></h1>	
+			
+				<center><%= link_to image_tag(@article.picture.url, :width => "600" , :height => "350")%></center>		
+			
+				<p class="lead	text-justify">
+					<%= @article.content %>
+				</p>
+				</li>
+				</ul>
+				</div>
+		</div>
+	</div>
 
-<p><%= @article.content %></p>
+	
+<%= render 'homes/footer'%>

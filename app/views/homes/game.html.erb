@@ -1,0 +1,23 @@
+<%= render 'navigation'%>
+<br/><br/><br/><br/><br/>
+ <!– berita terbaru –>
+ <div class="page-header">
+<h3>Permainan Pakuhaji</h3>		
+</div>
+ <div class="row">
+ 	<div class="col-sm-1">
+ 	</div>
+    <div class="col-sm-9">
+       	<% @game.each do |game| %>
+	 <div class="panel panel-default">
+					<div class="panel-heading"><%= game.title %></div>					    	
+	    		<p><%= game.content %></p>	    																																																			    	
+	    		<%= link_to image_tag(game.picture1.url(:thumbgame)),game.picture1.url(:original), class: "fancybox"%>
+	    		<%= link_to image_tag(game.picture2.url(:thumbgame)),game.picture2.url(:original), class: "fancybox"%>
+	    		<%= link_to image_tag(game.picture3.url(:thumbgame)),game.picture3.url(:original), class: "fancybox"%>		    						
+	 			</div>
+	 		 <%end%>	  
+ 		</div>
+	 </div>
+</div>
+<%= render 'footer'%>

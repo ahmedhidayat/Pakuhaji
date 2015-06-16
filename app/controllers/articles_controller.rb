@@ -1,12 +1,12 @@
 class ArticlesController < ApplicationController
-  before_action :check_current_admin, only: [:new, :create, :edit, :update, :destroy]
-  
+  before_action :check_current_admin, only: [:new, :create, :edit, :update, :destroy, :index]
+  layout "admin_application"
   def index
     @article = Article.all
   end
   
   def new
-    @article = Article.new
+    @article = Article.new  
   end
 
    def create
@@ -18,7 +18,19 @@ class ArticlesController < ApplicationController
     end
   end
 
+   def update
+     @article = Article.find_by_id(params[:id])
+      if @article.update(article_params)
+      flash[:notice] = "Success Update Record"
+      redirect_to action: 'index'
+    else
+      flash[:error] = "Data Not Valid"
+      render 'edit'
+    end
+  end
+  
   def edit
+    @article = Article.find_by_id(params[:id])
   end
 
   def show

@@ -1,0 +1,55 @@
+<%= render 'admins/navigation'%>
+<%= render 'admins/sidebar'%>
+<br/><br/><br/>
+<%= form_for @fasility do |f| %>
+<div class="col-sm-2">
+	</div>
+<div class="col-sm-7">
+	<div class="col-lg-12">
+				<div class="panel panel-default">
+					<div class="panel-heading">Edit Fasilitas</div>
+					<br/>
+	<form class="form-horizontal" role="form">
+		<div class="form-group">
+			<%= f.label :title, "Nama Fasilitas : ", :class => "control-label col-sm-2" %>
+			<div class="col-sm-10">
+				<%= f.text_field :title, :class => 'form-control', :placeholder=>'Masukan Nama Fasilitas'%>
+				</div>
+			</div>
+			<br/><br/>
+			<div class="form-group">
+			<%= f.label :content, "Keterangan Fasilitas : ", :class => "control-label col-sm-2" %>
+			<div class="col-sm-10">
+				<%= f.text_area :content, :class => 'form-control', :placeholder=>'Masukan Keterangan Fasilitas'%>
+				</div>
+			</div>
+			<br/><br/><br/>
+			<div class="form-group">
+			<%= f.label :picture1, "Gambar1 : ", :class => "control-label col-sm-2" %>
+			<div class="col-sm-10">   
+				<%= f.file_field :picture1%>
+				</div>
+			</div>
+			<br/>
+			<div class="form-group">
+			<%= f.label :picture2, "Gambar2 : ", :class => "control-label col-sm-2" %>
+			<div class="col-sm-10">   
+				<%= f.file_field :picture2%>
+				</div>
+			</div>
+			<br/>
+			<div class="form-group">
+			<%= f.label :picture3, "Gambar3 : ", :class => "control-label col-sm-2" %>
+			<div class="col-sm-10">   
+				<%= f.file_field :picture3%>
+				</div>
+			</div>
+			<br/><br/>
+				<%= f.submit "Simpan", :class => 'btn btn-default'%>
+	</div>
+				</form>
+			</div>
+		</div>
+	</div>
+<% end %>
+

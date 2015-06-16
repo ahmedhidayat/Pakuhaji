@@ -18,4 +18,14 @@ class ApplicationController < ActionController::Base
                 current_admin
             end
         end
+        
+        private
+        
+        def current_temporary
+          Temporary.find(session[:temporary_id])
+        rescue ActiveRecord::RecordNotFound
+          temporary = Temporary.create
+          session[:temporary_id] = temporary.id
+          temporary
+        end
 end

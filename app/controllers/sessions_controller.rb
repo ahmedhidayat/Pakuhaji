@@ -3,11 +3,11 @@ class SessionsController < ApplicationController
         username = params[:username]
         password = params[:password]
         admin = Admin.where("username=?", username).first
-        admin_password = admin.password_salt unless admin.blank?
-         if !admin_password.blank? and admin.password_hash.eql? admin_password
+        admin_password = BCrypt::Engine.hash_secret(password, admin.password_salt) unless admin.blank?
+         if !admin_password.blank?
             session[:admin] = admin.id
             flash[:notice] = "Wellcome #{admin.username}"
-            redirect_to root_url
+            redirect_to admin
         else
             params[:username]
             flash[:error] = "Your data not valid"

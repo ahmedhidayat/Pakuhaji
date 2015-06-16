@@ -1,0 +1,51 @@
+<div class="col-sm-10 col-sm-offset-2 col-lg-10 col-lg-offset-2 main">			
+	<br/><br/><br/>
+	<div class="col-xs-12">               
+<div class="row">
+			<div class="col-lg-12">
+				<div class="panel panel-default">
+					<div class="panel-heading">List Makan Anak</div>
+					<br/>
+					<div class="container col-sm-3 side pull-right ">	
+                <%= link_to 'Tambah Makan Anak', new_food_kid_path,:class => 'btn btn-primary  fa fa-trash-o ' %>
+                </div>
+                <br/><br/>
+					<div class="panel-body">
+						<table data-toggle="table" data-url="tables/data1.json"
+						data-select-item-name="toolbar1"  data-sort-name="name" data-sort-order="desc">
+                    
+                    <thead>
+                      <tr>
+                        <th>Keterangan</th>
+                        <th>Harga</th>
+                        <th>Operasi</th>
+
+                      </tr>
+                    </thead>
+                    <tbody>
+                    	<% @food_kid.each do |food_kid|%>
+                              <tr>
+                               	<td><%= food_kid.content %></td>
+        						<td><%= food_kid.price %></td>        						
+                   			 <td><div class="btn-group" role="group">                                  		
+                                  		<%= link_to 'EDIT', edit_food_kid_path(food_kid.id),:class => 'btn btn-primary  fa fa-trash-o ' %>
+       									<%= link_to "Hapus", food_kid,:class => 'btn btn-danger  fa fa-trash-o ', :confirm => 'Are you sure?', :method => :delete%> </div>
+                                  </td>
+                   			 </tr>
+                   			 
+                    		<% end %>
+                    	</tbody>
+                    <tfoot>
+                      
+                    </tfoot>
+                  </table>
+                </div><!-- /.box-body -->
+              </div><!-- /.box -->
+
+            </div><!-- /.col -->
+          </div><!-- /.row -->
+   </div>
+   </div>
+   </div>
+   </div>
+   

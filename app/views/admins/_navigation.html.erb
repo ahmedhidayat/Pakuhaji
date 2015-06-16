@@ -1,26 +1,16 @@
-<!--bagian navigation-->
-    <div class="navbar navbar-fixed-top navbar-default" role="navigation">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"/>
-            <span class="icon-bar"/>
-            <span class="icon-bar"/>
-          </button>
-          <a href=”#” class = "navbar-brand">Implement RELATIONSHIP CRUD</a>
-        </div>
-        <div class="collapse navbar-collapse">
-          <ul class="nav navbar-nav navbar-right">
-            <li><%= link_to "Home",articles_path%></li>
-            <li><%= link_to "Create",new_article_path%></li>
-            <li><a href=”#”>Contact</a></li>
-          </ul>
-        </div>  
-      </div>
-    </div>
-    <br>
-    <br/>
-    <br>
-    <br/>
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+		<div class="container-fluid">
+			<div class="navbar-header">								
+				<%= image_tag("Logo Polos.png", :class => "img-circle", :width => "80" , :height => "80" ) %>
+				<div class="container col-sm-1 side pull-right ">
+					<li> <%= link_to 'Log-Out', session_path(current_admin.id), method: "DELETE", :class => "glyphicon glyphicon-th" %> </li>
+					</div>
+					<div class="container col-sm-8 side pull-right ">
+						<h2>WISATA KUDA DAN WARUNG LIWET PAKUHAJI</h2>													
+						</div>	
+				</ul>
+			</div>
+								
+		</div><!-- /.container-fluid -->
+</nav>
 

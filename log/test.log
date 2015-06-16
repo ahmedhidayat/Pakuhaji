@@ -1,0 +1,40 @@
+  [1m[36m (3.1ms)[0m  [1mDROP DATABASE IF EXISTS `Pakuhaji_test`[0m
+  [1m[35m (13.9ms)[0m  CREATE DATABASE `Pakuhaji_test` DEFAULT CHARACTER SET `utf8` COLLATE `utf8_unicode_ci`
+  [1m[36m (70.1ms)[0m  [1mCREATE TABLE `additional_packets` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `content` text, `price` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [1m[35m (67.6ms)[0m  CREATE TABLE `admins` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `username` varchar(255), `password_hash` varchar(255), `created_at` datetime, `updated_at` datetime, `password_salt` varchar(255)) ENGINE=InnoDB
+  [1m[36m (66.5ms)[0m  [1mCREATE TABLE `articles` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `title` varchar(255), `content` text, `picture_file_name` varchar(255), `picture_content_type` varchar(255), `picture_file_size` int(11), `picture_updated_at` datetime, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [1m[35m (66.3ms)[0m  CREATE TABLE `fasilities` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `title` varchar(255), `content` varchar(255), `picture1_file_name` varchar(255), `picture1_content_type` varchar(255), `picture1_file_size` int(11), `picture1_updated_at` datetime, `picture2_file_name` varchar(255), `picture2_content_type` varchar(255), `picture2_file_size` int(11), `picture2_updated_at` datetime, `picture3_file_name` varchar(255), `picture3_content_type` varchar(255), `picture3_file_size` int(11), `picture3_updated_at` datetime, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (66.2ms)[0m  [1mCREATE TABLE `fasilitis` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `title` varchar(255), `content` text, `picture1_file_name` varchar(255), `picture1_content_type` varchar(255), `picture1_file_size` int(11), `picture1_updated_at` datetime, `picture2_file_name` varchar(255), `picture2_content_type` varchar(255), `picture2_file_size` int(11), `picture2_updated_at` datetime, `picture3_file_name` varchar(255), `picture3_content_type` varchar(255), `picture3_file_size` int(11), `picture3_updated_at` datetime, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [1m[35m (55.3ms)[0m  CREATE TABLE `food_adults` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `content` text, `price` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (66.5ms)[0m  [1mCREATE TABLE `food_kids` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `content` text, `price` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [1m[35m (66.4ms)[0m  CREATE TABLE `galleries` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `picture_file_name` varchar(255), `picture_content_type` varchar(255), `picture_file_size` int(11), `picture_updated_at` datetime, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (66.4ms)[0m  [1mCREATE TABLE `games` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `title` varchar(255), `content` text, `picture1_file_name` varchar(255), `picture1_content_type` varchar(255), `picture1_file_size` int(11), `picture1_updated_at` datetime, `picture2_file_name` varchar(255), `picture2_content_type` varchar(255), `picture2_file_size` int(11), `picture2_updated_at` datetime, `picture3_file_name` varchar(255), `picture3_content_type` varchar(255), `picture3_file_size` int(11), `picture3_updated_at` datetime, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [1m[35m (66.3ms)[0m  CREATE TABLE `line_items` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `reservation_id` int(11), `temporary_id` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (66.3ms)[0m  [1mCREATE TABLE `packets` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `title` varchar(255), `content` text, `picture_file_name` varchar(255), `picture_content_type` varchar(255), `picture_file_size` int(11), `picture_updated_at` datetime, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [1m[35m (66.4ms)[0m  CREATE TABLE `profiles` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `content` text, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (66.2ms)[0m  [1mCREATE TABLE `reservations` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `date_now` datetime, `date_booked` datetime, `id_vacation_packet` int(11), `id_game` int(11), `people_kid` int(11), `people_adult` int(11), `id_food_kid` int(11), `id_food_adult` int(11), `id_additional_packet` int(11), `total` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [1m[35m (66.3ms)[0m  CREATE TABLE `sliders` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `title` varchar(255), `content` text, `picture_file_name` varchar(255), `picture_content_type` varchar(255), `picture_file_size` int(11), `picture_updated_at` datetime, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (66.4ms)[0m  [1mCREATE TABLE `temporaries` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [1m[35m (78.7ms)[0m  CREATE TABLE `vacation_packets` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `title` varchar(255), `qty_game` varchar(255), `price_kid` int(11), `price_adult` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (65.5ms)[0m  [1mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (178.1ms)[0m  CREATE UNIQUE INDEX `unique_schema_migrations` ON `schema_migrations` (`version`) 
+  [1m[36m (0.2ms)[0m  [1mSELECT version FROM `schema_migrations`[0m
+  [1m[35m (33.0ms)[0m  INSERT INTO `schema_migrations` (version) VALUES ('20150614205907')
+  [1m[36m (33.3ms)[0m  [1mINSERT INTO `schema_migrations` (version) VALUES ('20150608140002')[0m
+  [1m[35m (44.5ms)[0m  INSERT INTO `schema_migrations` (version) VALUES ('20150608124044')
+  [1m[36m (44.4ms)[0m  [1mINSERT INTO `schema_migrations` (version) VALUES ('20150608151412')[0m
+  [1m[35m (44.4ms)[0m  INSERT INTO `schema_migrations` (version) VALUES ('20150503200000')
+  [1m[36m (33.4ms)[0m  [1mINSERT INTO `schema_migrations` (version) VALUES ('20150516203058')[0m
+  [1m[35m (33.4ms)[0m  INSERT INTO `schema_migrations` (version) VALUES ('20150420170951')
+  [1m[36m (33.4ms)[0m  [1mINSERT INTO `schema_migrations` (version) VALUES ('20150510140815')[0m
+  [1m[35m (33.4ms)[0m  INSERT INTO `schema_migrations` (version) VALUES ('20150503204821')
+  [1m[36m (33.4ms)[0m  [1mINSERT INTO `schema_migrations` (version) VALUES ('20150503211842')[0m
+  [1m[35m (33.4ms)[0m  INSERT INTO `schema_migrations` (version) VALUES ('20150614170617')
+  [1m[36m (33.4ms)[0m  [1mINSERT INTO `schema_migrations` (version) VALUES ('20150614205402')[0m
+  [1m[35m (33.3ms)[0m  INSERT INTO `schema_migrations` (version) VALUES ('20150608133909')
+  [1m[36m (33.3ms)[0m  [1mINSERT INTO `schema_migrations` (version) VALUES ('20150503164103')[0m
+  [1m[35m (33.3ms)[0m  INSERT INTO `schema_migrations` (version) VALUES ('20150516182830')
+  [1m[36m (33.4ms)[0m  [1mINSERT INTO `schema_migrations` (version) VALUES ('20150420141915')[0m
+  [1m[35m (33.3ms)[0m  INSERT INTO `schema_migrations` (version) VALUES ('20150418211623')
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT `schema_migrations`.* FROM `schema_migrations`

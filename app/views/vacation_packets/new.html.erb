@@ -1,0 +1,41 @@
+<%= render 'admins/navigation'%>
+<%= render 'admins/sidebar'%>
+<br/><br/><br/>
+<%= form_for @vacation_packet do |f| %>
+<div class="col-sm-2">
+	</div>
+<div class="col-sm-7">
+		<div class="col-lg-12">
+				<div class="panel panel-default">
+					<div class="panel-heading">Tambah Paket Wisata</div>
+					<br/>
+	<form class="form-horizontal" role="form">
+		<div class="form-group">
+			<%= f.label :title, "Nama Paket:", :class => "control-label col-sm-3" %>
+			<div class="col-sm-7">
+				<%= f.text_field :title, :class => 'form-control', :placeholder=>'Masukan Nama Paket'%>
+			</div>
+			<br/><br/>
+			<%= f.label :qty_game, "Jumlah Permainan:", :class => "control-label col-sm-3" %>
+			<div class="col-sm-7">
+				<%= f.text_field :qty_game, :class => 'form-control', :placeholder=>'Masukan Jumlah Permainan'%>				
+			</div>
+			<br/><br/>	
+			<%= f.label :price_kid, "Harga Anak:", :class => "control-label col-sm-3" %>
+			<div class="col-sm-7">
+				<%= f.text_field :price_kid, :class => 'form-control', :placeholder=>'Masukan Harga Anak'%>
+			</div>
+			<br/><br/>	
+			<%= f.label :price_adult, "Harga Dewasa:", :class => "control-label col-sm-3" %>
+			<div class="col-sm-7">
+				<%= f.text_field :price_adult, :class => 'form-control', :placeholder=>'Masukan Harga Dewasa'%>
+			</div>
+			<br/><br/><br/>
+				<%= f.submit "Simpan", :class => 'btn btn-default'%>
+	</div>
+				</form>
+			</div>
+		</div>
+	</div>
+<% end %>
+

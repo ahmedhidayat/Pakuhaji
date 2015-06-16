@@ -1,0 +1,32 @@
+<%= render 'admins/navigation'%>
+<%= render 'admins/sidebar'%>
+<br/><br/><br/>
+<%= form_for @food_kid do |f| %>
+<div class="col-sm-2">
+	</div>
+<div class="col-sm-7">
+		<div class="col-lg-12">
+				<div class="panel panel-default">
+					<div class="panel-heading">Tambah Makan Anak</div>
+					<br/>
+	<form class="form-horizontal" role="form">
+		<div class="form-group">
+			<%= f.label :content, "Keterangan : ", :class => "control-label col-sm-3" %>
+			<div class="col-sm-7">
+				<%= f.text_field :content, :class => 'form-control', :placeholder=>'Masukan Deskripsi Makanan'%>				
+			</div>
+			<br/><br/>
+			<%= f.label :price, "Harga : ", :class => "control-label col-sm-3" %>
+			<div class="col-sm-7">
+				<%= f.text_field :price, :class => 'form-control', :placeholder=>'Masukan Harga'%>				
+				</div>			
+			</div>
+			<br/><br/><br/>	
+				<%= f.submit "Simpan", :class => 'btn btn-default'%>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+<% end %>
+

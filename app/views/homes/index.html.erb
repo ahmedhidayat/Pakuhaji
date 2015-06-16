@@ -1,0 +1,59 @@
+<%= render 'navigation'%>
+<br/><br/><br/><br/><br/><br/>
+<%= render 'slideshow'%>
+<br/><br/><br/>
+ 
+ <!– berita terbaru –>
+
+<div class="container col-sm-6 side pull-left sidebar-offcanvas"  >
+      <h1>Berita Terbaru</h1>		
+			 <% @article.each do |article| %>
+		 <ul class="list-group">
+	 	 <li class="list-group-item">
+			<div class="article">
+			<div class="title">
+				<%= article.title %>
+					</div>
+				</div>
+			<div class="article">
+			<div class="content">
+				<%= article.content.truncate(40) %>
+					</div>
+				</div>
+				<%= link_to image_tag(article.picture.url(:thumb)),article.picture.url(:original), class: "fancybox"%>			
+				<center><%= link_to 'read more', article_path(article.id) %></center>
+			  </li>
+			</ul>							    			    																																																			    	
+	    	<% end %>			  				
+</div>
+
+		
+	 	 <!– fasilities –>
+	 	 <div class="container col-sm-4 side pull-right ">
+	  	 <h1>Fasilitas</h1>
+	   <ul class="list-group">
+	 	 <li class="list-group-item">
+    	 	<p class="lead	text-justify">
+    	 		 Pakuhaji mempunyai fasilitas yang memadai sebagai
+    		 	 salah satu destinasi wisata untuk para keluarga. 
+  		  	 	 Kita lihat yuk fasilitas yang dimiliki Pakuhaji
+ 			   	</p>
+ 			   	<%= link_to 'read more', fasility_home_path %>
+    		</li>
+    	</ul>
+	  	 <h1>Permainan</h1>
+	  	 <ul class="list-group">
+	 	 <li class="list-group-item">
+	  	 	<p class="lead	text-justify">
+	  	 	Pakuhaji mempunyai beberapa permainan yang menarik 
+    	 	dan memacu adrenaline anda.
+    	 	Kita lihat yuk permainan apasaja yang dimiliki Pakuhaji
+    	 	</p>
+    	 	<%= link_to 'read more', game_home_path %>
+	  	 </li>
+	  	 </ul>
+	  	 
+    	</div>
+    	
+
+ 

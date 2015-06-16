@@ -1,0 +1,21 @@
+<body>
+<nav class="navbar navbar-default navbar-fixed-top">
+     <div>
+      <ul class="nav navbar-nav">
+        	<li> <%= link_to "Beranda",homes_path%> </li>
+            <li> <%= link_to "Profile",profile_home_path%> </li>
+            <li> <%= link_to "Fasilitas",fasility_home_path%> </li>
+    	   
+      </ul>
+       <ul class="nav navbar-nav navbar-right">
+         <li><%= image_tag("Logo Polos.png", :width => "100" , :height => "100", :align => "center" ) %></li>
+        <li> <%= link_to "Permainan",game_home_path%> </li>
+        <li> <%= link_to "Galeri",gallery_home_path%> </li>
+        <li> <%= link_to "Daftar Paket",packet_home_path%> </li>
+        <li> <%= link_to "Pesan Paket",new_reservation_path%> </li>
+ 
+      </ul>
+    </div>
+  </div>
+</nav>
+

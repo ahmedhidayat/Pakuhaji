@@ -1,0 +1,23 @@
+<%= render 'navigation'%>
+<br/><br/><br/><br/><br/>
+ <!– berita terbaru –>
+ <div class="page-header">
+<h3>Fasilitas Pakuhaji</h3>		
+</div>
+ <div class="row">
+ 	<div class="col-sm-1">
+ 	</div>
+    <div class="col-sm-9">
+       	<% @fasility.each do |fasility| %>
+	 <div class="panel panel-default">
+					<div class="panel-heading"><%= fasility.title %></div>					    	
+	    		<p><%= fasility.content %></p>	    																																																			    	
+	    		<%= link_to image_tag(fasility.picture1.url(:thumbfasility)),fasility.picture1.url(:original), class: "fancybox"%>
+	    		<%= link_to image_tag(fasility.picture2.url(:thumbfasility)),fasility.picture2.url(:original), class: "fancybox"%>
+	    		<%= link_to image_tag(fasility.picture3.url(:thumbfasility)),fasility.picture3.url(:original), class: "fancybox"%>		    						
+	 			</div>
+	 		 <%end%>	  
+ 		</div>
+	 </div>
+</div>
+<%= render 'footer'%>

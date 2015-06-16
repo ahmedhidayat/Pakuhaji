@@ -13,5 +13,12 @@
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap
+//= require bootstrap-slider
 //= require turbolinks
-//= require_tree .
+//= require bootstrap-datetimepicker
+
+  $(function() { $('#datetimepicker2').datetimepicker({ language: 'en', pick12HourFormat: true }); console.log("harus muncul"); });  
+
+
+
+

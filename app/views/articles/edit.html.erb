@@ -1,3 +1,36 @@
-<%= render 'navigation'%>
-<h1>Articles#edit</h1>
-<p>Find me in app/views/articles/edit.html.erb</p>
+<%= render 'admins/navigation'%>
+<%= render 'admins/sidebar'%>
+<br/><br/><br/>
+<%= form_for @article do |f| %>
+<div class="col-sm-2">
+	</div>
+<div class="col-sm-7">
+	<div class="col-lg-12">
+				<div class="panel panel-default">
+					<div class="panel-heading">Edit Berita</div>
+					<br/>
+	<form class="form-horizontal" role="form">
+		<div class="form-group">
+			<%= f.label :title, "Judul : ", :class => "control-label col-sm-2" %>
+			<div class="col-sm-10">
+				<%= f.text_field :title, :class => 'form-control', :placeholder=>'Masukan Judul'%>				
+			</div>
+			<br/><br/>
+			<%= f.label :content, "Isi Berita : ", :class => "control-label col-sm-2" %>
+			<div class="col-sm-10">
+				<%= f.text_area :content, :class => 'form-control', :placeholder=>'Masukan Isi Berita'%>				
+			</div>
+			<br/><br/><br/><br/>
+			<%= f.label :picture, "Gambar : ", :class => "control-label col-sm-2" %>
+			<div class="col-sm-10">   
+				<%= f.file_field :picture%>
+			</div>				
+			</div>
+		    <br/><br/><br/>
+				<%= f.submit "Simpan", :class => 'btn btn-default'%>			
+				</form>
+			</div>
+		</div>
+	</div>
+<% end %>
+

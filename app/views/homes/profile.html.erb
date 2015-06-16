@@ -1,0 +1,25 @@
+<%= render 'navigation'%>
+<br/><br/><br/><br/><br/>
+<div class="page-header">
+<h3>Profil Pakuhaji</h3>		
+</div>
+	<div class="row">
+    	<div class="col-sm-1">
+		</div> 
+	<div class="col-sm-4">
+<div class="container"> 
+  <ul class="list-group">
+  	<% @profile.each do |profile| %>
+    <li class="list-group-item">		
+    	<p class="lead	text-justify">
+				<%= profile.content %>
+				</p>			
+    	</li>
+    <% end %>
+  </ul>
+</div>    	
+ 	</div>   
+ 	</div>
+ 	 <%= render 'footer'%>
+
+

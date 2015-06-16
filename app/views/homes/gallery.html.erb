@@ -1,0 +1,19 @@
+<%= render 'navigation'%>
+<br/><br/><br/><br/><br/>
+ <!– berita terbaru –>
+ <div class="page-header">
+<h3>Galery Pakuhaji</h3>		
+</div>
+
+         <div class="container col-sm-6 side pull-right sidebar-offcanvas"  > 
+	 		<ul class="list-group">
+		 	 <li class="list-group-item">
+	           <% @gallery.each do |gallery| %> 
+            <%= link_to image_tag(gallery.picture.url(:thumb)) %>            
+            <% end %>
+           		 </li>
+            	</ul>
+          	  </div>
+        </div>
+<%= render 'footer'%>
+

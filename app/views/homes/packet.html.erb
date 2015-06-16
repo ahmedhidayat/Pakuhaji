@@ -1,0 +1,16 @@
+<%= render 'navigation'%>
+<div class="page-header">
+<h3>Daftar Paket Pakuhaji</h3>	
+</div>
+	<div class="row">
+	<% @packet.each do |packet| %>
+	<div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 text-center">
+	<h2><%= packet.title %></h2>
+	<%= link_to image_tag(packet.picture.url(:thumb)),packet.picture.url(:original), class: "fancybox"%>
+	<p><%= packet.content %></p>	
+	<%= link_to 'Unduh', :class=>"btn btn-primary" %>
+			</div>
+		<% end %>
+	</div>
+
+<%= render 'footer'%>
