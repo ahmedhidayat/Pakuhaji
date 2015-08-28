@@ -1,0 +1,39 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
+   "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+  <head>
+	  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	  <title>reservation_confirm_email.html</title>
+	 
+  </head>
+  <body>
+  <h1> Kepada Yang Terhormat <%=@customer %></h1>
+  <p> Pesanan dengan Nomer <%= @transaction_code%> sudah di <%= @status %></p>
+  <p> Detail Pesanan	</p>
+  <p> Tanggal Pesan <%= @date_created%></p>
+  <p> Tanggal Pesanan <%= @date_booked%>    </p>
+  <p> Nama Paket  <%= @name_vacation_packet%> </p>
+  <p> Nama Permainan  <% @games.each do |game|%> 
+  		<%= Game.find(game.game_id).title %>
+  		<br/>
+  	<% end %></p>
+  	
+  <p> Jumlah Anak   <%= @kid_count%></p>
+  <p> Makanan   <% @foods.each do|food|%>
+  	<%= Food.find(food.food_id).name %>
+  	<br/>
+  	<% end %>
+  </p>
+  <p> Jumlah Dewasa <%= @adult_count%>   </p> 
+  <% unless @additional_packets.blank? %>
+	  <p> Paket Tambahan <% @additional_packets.each do |additional_packet|%>   </p>
+	  	<%= AdditionalPacket.find(additional_packet.additional_packet_id).content %>
+	  	<br>
+	  	<% end %>
+	<% end %>
+  <p> Total  <%= @total%> </p>
+  <p>Keterangan: Harap bukti konfirmasi ini dibawa pada saat anda akan melakukan pembayaran </p>
+  <p> Terima Kasih</p>
+    
+  </body>
+</html>

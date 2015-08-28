@@ -2,7 +2,7 @@ class VacationPacketsController < ApplicationController
 before_action :check_current_admin, only: [:new, :create, :edit, :update, :destroy, :index]
   layout "admin_application"
   def index
-    @vacation_packet = VacationPacket.all
+    @vacation_packet = VacationPacket.page(params[:page]) .per(5)
   end
   
   def new

@@ -11,13 +11,27 @@
 // about supported directives.
 //
 //= require jquery
+//= require fancybox
 //= require jquery_ujs
 //= require bootstrap
 //= require bootstrap-slider
-//= require turbolinks
+//= require numeric
+//= require jquery.numeric
 //= require bootstrap-datetimepicker
+//= require html5shiv
+//= require jquery
+//= require jquery.prettyPhoto
 
-  $(function() { $('#datetimepicker2').datetimepicker({ language: 'en', pick12HourFormat: true }); console.log("harus muncul"); });  
+$(document).ready(function() {
+	$(".fancybox").fancybox({
+		openEffect	: 'none',
+		closeEffect	: 'none',
+		maxWidth	: 1000,
+		maxHeight	: 650,
+	});
+	
+}); 
+   
 
 
 

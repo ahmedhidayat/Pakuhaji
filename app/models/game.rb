@@ -1,5 +1,6 @@
 class Game < ActiveRecord::Base
-  belongs_to :reservation,dependent: :delete
+ has_many :reservation_games
+ 
   has_attached_file :picture1, :styles => {:thumb => "100x200>", :thumbgame => "150x150"}
   has_attached_file :picture2, :styles => {:thumb => "100x200>", :thumbgame => "150x150"}
   has_attached_file :picture3, :styles => {:thumb => "100x200>", :thumbgame => "150x150"}
@@ -14,13 +15,13 @@ class Game < ActiveRecord::Base
   validates_attachment_content_type :picture1, 
                                       :content_type => /^image\/(png|gif|jpeg)/,
                                       :message => 'only (png/gif/jpeg) images'
-  validates_attachment_size :picture1,  :in => 0..1024.kilobytes  
+  validates_attachment_size :picture1,  :in => 0..3024.kilobytes  
   validates_attachment_content_type :picture2, 
                                       :content_type => /^image\/(png|gif|jpeg)/,
                                       :message => 'only (png/gif/jpeg) images'
-  validates_attachment_size :picture2,  :in => 0..1024.kilobytes
+  validates_attachment_size :picture2,  :in => 0..3024.kilobytes
   validates_attachment_content_type :picture3, 
                                       :content_type => /^image\/(png|gif|jpeg)/,
                                       :message => 'only (png/gif/jpeg) images'
-  validates_attachment_size :picture3,  :in => 0..1024.kilobytes
+  validates_attachment_size :picture3,  :in => 0..3024.kilobytes
 end

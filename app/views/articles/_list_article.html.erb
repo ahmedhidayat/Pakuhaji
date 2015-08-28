@@ -11,6 +11,9 @@
 					<div class="container col-sm-2 side pull-right ">	
                 <%= link_to 'Tambah Berita', new_article_path,:class => 'btn btn-primary  fa fa-trash-o ' %>
                 </div>
+                <div class="container col-sm-2 side pull-right ">
+                <%= paginate @article, :window => 5 %>
+                </div>
                 <br/><br/>
 					<div class="panel-body">
 						<table data-toggle="table" data-url="tables/data1.json"

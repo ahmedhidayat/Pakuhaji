@@ -1,5 +1,4 @@
 <%= render 'navigation'%>
-<br/><br/><br/><br/><br/>
  <!– berita terbaru –>
  <div class="page-header">
 <h3>Fasilitas Pakuhaji</h3>		
@@ -19,5 +18,5 @@
 	 		 <%end%>	  
  		</div>
 	 </div>
-</div>
+<%= paginate @fasility, :window => 3 %>
 <%= render 'footer'%>

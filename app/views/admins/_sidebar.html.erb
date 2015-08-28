@@ -4,7 +4,7 @@
 	
 		<ul class="nav menu">
 			<br/><br/>
-			<center><h2>Menu</h2></center>
+			<center><h4>Menu Website</h4></center>
 			<li><%= link_to "Berita", articles_path , :class => "glyphicon glyphicon-th" %> </li>
 			<li><%= link_to "Profil", profiles_path , :class => "glyphicon glyphicon-th" %> </li>
 			<li><%= link_to "Fasilitas", fasilities_path , :class => "glyphicon glyphicon-th" %> </li>
@@ -12,26 +12,27 @@
 			<li><%= link_to "Galeri", galleries_path , :class => "glyphicon glyphicon-th" %> </li>
 			<li><%= link_to "Paket", packets_path , :class => "glyphicon glyphicon-th" %> </li>
 			<li><%= link_to "Slider", sliders_path , :class => "glyphicon glyphicon-th" %> </li>
+						
+		</ul>
+		<ul class="nav menu">			
+			<center><h4>Menu Paket Wisata</h4></center>			
 			<li class="parent ">
-				<a href="#">
-					<span class="glyphicon glyphicon-th"></span>Master Paket Wisata <span data-toggle="collapse" href="#sub-item-1" class="icon pull-right"><em class="glyphicon glyphicon-s glyphicon-plus"></em></span> 
+				<a aria-expanded="true" data-toggle="collapse" href="#sub-item-1">
+					<span class="glyphicon glyphicon-th"></span>Master Paket Wisata <span href="#" class="icon pull-right"><em class="glyphicon glyphicon-s glyphicon-plus"></em></span> 
 				</a>
 				<ul class="children collapse" id="sub-item-1">
 					<li>
 						<%= link_to "Paket Wisata", vacation_packets_path, :class => "glyphicon glyphicon-share-alt" %>									
 					</li>
 					<li>
-						<%= link_to "Makan Anak", food_kids_path, :class => "glyphicon glyphicon-share-alt" %>
-					</li>
-					<li>
-						<%= link_to "Makan Dewasa", food_adults_path, :class => "glyphicon glyphicon-share-alt" %>
+						<%= link_to "Makan", foods_path, :class => "glyphicon glyphicon-share-alt" %>									
 					</li>
 					<li>
 						<%= link_to "Paket Tambahan", additional_packets_path, :class => "glyphicon glyphicon-share-alt" %>
 					</li>
 				</ul>
 			</li>
-			
+			<li><%= link_to "Data Paket Wisata", reservations_path , :class => "glyphicon glyphicon-th" %> </li>			
 		</ul>
 		</div>
 	</div><!--/.sidebar-->

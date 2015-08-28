@@ -1074,11 +1074,11 @@ html {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 body {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Garamond";
   font-size: 14px;
   line-height: 1.42857143;
   color: #333;
-  background-color: #fff;
+  background-color: rgba(238, 240, 233, 1);
 }
 input,
 button,
@@ -1390,7 +1390,7 @@ a.bg-danger:hover {
 .page-header {
   padding-bottom: 9px;
   margin: 40px 0 20px;
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid #000;
 }
 ul,
 ol {
@@ -4475,8 +4475,10 @@ fieldset[disabled] .navbar-default .btn-link:focus {
   color: #ccc;
 }
 .navbar-inverse {
-  background-color: #222;
+  background-color: #34495E;
   border-color: #080808;
+  color: rgba(237, 237, 237, 1);
+  font-size: 18px;
 }
 .navbar-inverse .navbar-brand {
   color: #9d9d9d;
@@ -4490,7 +4492,7 @@ fieldset[disabled] .navbar-default .btn-link:focus {
   color: #9d9d9d;
 }
 .navbar-inverse .navbar-nav > li > a {
-  color: #9d9d9d;
+  color: rgba(255, 255, 255, 1);
 }
 .navbar-inverse .navbar-nav > li > a:hover,
 .navbar-inverse .navbar-nav > li > a:focus {

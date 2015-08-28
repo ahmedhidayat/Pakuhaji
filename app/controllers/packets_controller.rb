@@ -2,7 +2,7 @@ class PacketsController < ApplicationController
   before_action :check_current_admin, only: [:new, :create, :edit, :update, :destroy, :index]
   layout "admin_application"
   def index
-    @packet = Packet.all
+    @packet = Packet.page(params[:page]) .per(5)
   end
 
   def new

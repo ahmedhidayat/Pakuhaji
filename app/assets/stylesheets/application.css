@@ -12,6 +12,11 @@
  *= require bootstrap
  *= require datepicker
  *= require datepicker3
+ *= require fancybox
+ *= require font-awesome
+ *= require animate
+ *= require main
+ *= require prettyPhoto
  */
 
 .article {

@@ -1,19 +1,15 @@
 <%= form_tag sessions_path do %>
-<br/>
-<br/>
-<br/>
-<br/>
+<br/><br/><br/><br/>
 <div class="container">
 <div class="row">
-<div class="col-sm-6 col-md-4 col-md-offset-4">
+<div class="col-sm-8 col-md-4 col-md-offset-4">
 <div class="panel panel-default">
 <div class="panel-body">
 <div class="account-wall" >
-<img class="profile-img" src="https://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/eu7opA4byxI/photo.jpg?sz=120"
-alt="" >
-<br/>
-<br/>
-<br/>
+	<div class="container col-sm-9 side pull-right ">	
+ <%= image_tag("Logo Polos.png", :class => "img-square", :width => "140" , :height => "140" ) %>
+</div>
+<br/><br/><br/><br/><br/><br/><br/><br/><br/>
 <form class="form-signin">
 	<div class=" input-group">
 <%= text_field_tag :username, (params[:username] unless params[:username.blank?]), 

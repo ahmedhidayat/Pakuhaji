@@ -10,6 +10,10 @@
                 <%= link_to 'Tambah Paket', new_packet_path,:class => 'btn btn-primary  fa fa-trash-o ' %>
                 </div>
                 <br/><br/>
+                <div class="container col-sm-2 side pull-right ">
+                <%= paginate @packet, :window => 5 %>
+                </div>
+                <br/><br/>
 					<div class="panel-body">
 						<table data-toggle="table" data-url="tables/data1.json"
 						data-select-item-name="toolbar1"  data-sort-name="name" data-sort-order="desc">

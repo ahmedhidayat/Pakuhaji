@@ -2,7 +2,7 @@ class FasilitiesController < ApplicationController
   before_action :check_current_admin, only: [:new, :create, :edit, :update, :destroy, :index]
   layout "admin_application"
   def index
-    @fasility = Fasility.all
+    @fasility = Fasility.page(params[:page]) .per(5)
   end
 
   def new

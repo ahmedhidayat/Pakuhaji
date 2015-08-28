@@ -1,2 +1,107 @@
-<h1>Reservations#edit</h1>
-<p>Find me in app/views/reservations/edit.html.erb</p>
+<%= render 'admins/navigation'%>
+<%= render 'admins/sidebar'%>
+<div class="col-sm-10 col-sm-offset-2 col-lg-10 col-lg-offset-2 main">			
+	<br/>
+	<div class="col-xs-12">              
+		
+<div class="row">
+			<div class="page-header">
+			<h3>Pesanan Paket Wisata <%= @reservation.customer.name %></h3>		
+				</div>
+				<div class="container">
+            <div class="row">
+                <div class="col-md-5">
+                	<div class="panel panel-default">
+                    <div class="panel-heading">Paket Wisata</div>
+                   <form class="form-horizontal" role="form">
+                   	<%= form_for @reservation do |f| %>
+		<div class="form-group">
+			<br/>
+			<%= f.label :transaction_code, "Kode Pemesanan: ", :class => "control-label col-sm-5" %>
+			<div class="col-sm-6">
+				<%= f.text_field :transaction_code, :class => 'form-control', readonly: true%>							
+			</div>
+			<br/><br/>
+			<%= f.label :created_at, "Tanggal: ", :class => "control-label col-sm-5" %>
+			<div class="col-sm-6">
+				<%= f.text_field :created_at, :class => 'form-control', readonly: true, value: f.object.created_at.strftime("%d-%B-%Y")%>							
+			</div>
+			<br/><br/>			
+			<%= f.label :date_booked, "Tanggal Pesan: ", :class => "control-label col-sm-5" %>
+			<div class="col-sm-6">
+				<%= f.text_field :date_booked, :class => 'form-control', readonly: true, value: f.object.created_at.strftime("%d-%B-%Y %H:%M")%>							
+			</div>
+			<br/><br/>			
+			<%= f.label :vacation_packet_id, "Nama Paket: ", :class => "control-label col-sm-5" %>
+			<div class="col-sm-6">
+				
+				<%= text_field_tag :packet_id, name_packet(@reservation.vacation_packet_id) , :class => 'form-control', readonly: true %>
+				<%= f.hidden_field :vacation_packet_id, :class => 'form-control', :placeholder=>'Masukan Judul', readonly: true %>							
+			</div>
+			<br/><br/>			
+			<%= f.label :kid_count, "Jumlah Anak: ", :class => "control-label col-sm-5" %>
+			<div class="col-sm-6">
+				<%= f.text_field :kid_count, :class => 'form-control', readonly: true%>							
+			</div>
+			<br/><br/>			
+			<%= f.label :adult_count, "Jumlah Dewasa: ", :class => "control-label col-sm-5" %>
+			<div class="col-sm-6">
+				<%= f.text_field :adult_count, :class => 'form-control', readonly: true%>							
+			</div>
+			<br/><br/>			
+			<%= f.label :total, "Total: ", :class => "control-label col-sm-5" %>
+			<div class="col-sm-6">
+				<%= f.text_field :total, :class => 'form-control', readonly: true%>							
+			</div>
+			<% end %>			
+			</div>
+				</form>
+                    </div>
+                </div>
+                 <div class="col-md-5">
+                 	<div class="panel panel-default">
+                    <div class="panel-heading">Data Permainan</div>
+                    <div class="form-group">
+                   	<% @g.each do |game|%> 
+  					<%= Game.find(game.game_id).title %>  					
+  					<br/>
+  					<% end %></p>
+  					</div>
+                    </div>
+                 	</div>
+                 	<div class="col-md-5">
+                 	<div class="panel panel-default">
+                    <div class="panel-heading">Data Customer</div>
+                  <%= @reservation.customer.name%><br/>
+                  <%= @reservation.customer.address%><br/>
+                  <%= @reservation.customer.telephone%><br/>
+                  <%= @reservation.customer.email%><br/>
+                    </div>
+                    </div>
+                    <div class="col-md-5">
+                 	<div class="panel panel-default">
+                    <div class="panel-heading">Data Paket Tambahan</div>
+               		<% @ap.each do |additional_packet|%> 
+  					<%= AdditionalPacket.find(additional_packet.additional_packet_id).content %>  					
+  					<br/>
+  					<% end %></p>
+                    </div>
+                    </div>
+                </div>
+                </div>
+                
+				
+          </div><!-- /.row -->
+          
+                 
+   </div>
+   <% if @reservation.status != 'Terima' && @reservation.status != 'Tolak' && @reservation.status != 'Sudah Digunakan'  %>
+   <%= link_to 'Terima', update_status_reservations_path(id:@reservation.id,status:'Terima'),:class => 'btn btn-primary ' %>
+   <%= link_to 'Tolak',update_status_reservations_path(id:@reservation.id,status:'Tolak'),:class => 'btn btn-primary ' %>
+   <% elsif @reservation.status == 'Terima' %>
+   <%= link_to 'Sudah Digunakan',update_status_reservations_path(id:@reservation.id,status:'Sudah Digunakan'),:class => 'btn btn-primary ' %>
+         
+   <% end %>
+   </div>
+  
+   

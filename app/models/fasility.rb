@@ -13,13 +13,13 @@ class Fasility < ActiveRecord::Base
   validates_attachment_content_type :picture1, 
                                       :content_type => /^image\/(png|gif|jpeg)/,
                                       :message => 'only (png/gif/jpeg) images'
-  validates_attachment_size :picture1,  :in => 0..1024.kilobytes  
+  validates_attachment_size :picture1,  :in => 0..3024.kilobytes  
   validates_attachment_content_type :picture2, 
                                       :content_type => /^image\/(png|gif|jpeg)/,
                                       :message => 'only (png/gif/jpeg) images'
-  validates_attachment_size :picture2,  :in => 0..1024.kilobytes
+  validates_attachment_size :picture2,  :in => 0..3024.kilobytes
   validates_attachment_content_type :picture3, 
                                       :content_type => /^image\/(png|gif|jpeg)/,
                                       :message => 'only (png/gif/jpeg) images'
-  validates_attachment_size :picture3,  :in => 0..1024.kilobytes  
+  validates_attachment_size :picture3,  :in => 0..3024.kilobytes  
 end

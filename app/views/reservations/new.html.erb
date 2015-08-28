@@ -1,71 +1,61 @@
 <%= render 'homes/navigation'%>
-<br/><br/><br/><br/><br/><br/>
+<div class="page-header">
+<h3>Pesan Paket Wisata Pakuhaji</h3>	
+</div>
 <%= form_for @reservation do |f| %>
 <div class="col-sm-2">
 	</div>
-<div class="col-sm-9">
-	<div class="col-lg-8">
+<div class="col-sm-10">
+	<div class="col-lg-10">
 				<div class="panel panel-default">
 					<div class="panel-heading">Paket Wisata Pakuhaji</div>
 					<br/>					
 	<form class="form-horizontal" role="form">
-		<div class="form-group">
-			<%= f.label :date_now, "Tanggal : ", :class => "control-label col-sm-3" %>
+		<div class="form-group">					
+			<%= f.label :date_booked, "Tanggal Pesan : ", :class => "control-label col-sm-4" %>
 			<div class="col-sm-8">
-				<%= f.text_field :date_now, :class => 'form-control', :placeholder=>'Masukan Judul'%>				
-			</div>
-			<br/><br/>
-			<%= f.label :date_booked, "Tanggal Pesan : ", :class => "control-label col-sm-3" %>
-			<div class="col-sm-8">
-				<%= f.text_field :date_booked, :class => 'form-control', :placeholder=>'Masukan Isi Berita'%>				
-			</div>
-			<br/><br/>
-			<%= f.label :id_vacation_packet, "Pilih Paket : ", :class => "control-label col-sm-3" %>
-			<div class="col-sm-8">
-				<%= select("reservation", "id_vacation_packet", VacationPacket.find(:all).collect {|p| [ p.title, p.id ] })%>				
-			</div>
+				<%= f.text_field :date_booked,:id => 'datetimepicker1' ,'data-format' => "dd/MM/yyyy hh:mm:ss", :class => 'form-control', :placeholder=>'Masukan Tanggal Pesanan'%>
+				<%= @reservation.errors[:date_booked].first unless @reservation.errors[:date_booked].blank? %>				
+			</div>		
 				<br/><br/>
-			<%= f.label :id_game, "Pilih Permainan : ", :class => "control-label col-sm-3" %>
-			<div class="col-sm-7">			
-				<div class="col-xs-12 col-sm-6 col-md-8 col-lg-6 text-center">						
+			<%= f.label :id_game, "Pilih Permainan : ", :class => "control-label col-sm-4" %>
+			<div class="col-sm-8">			
                     <tbody>
-                    	<% @game.each do |game|%>
-                              <tr>
-                               	<td><%= check_box_tag "game_ids[]", game.id %></td>
-                               	<td><%= game.title %></td>                               	
-                               	<% end %>                               	
-                           	</tr>
-                   	</tbody>
-                </div>		                            						
+                    	<% (1..@loop.to_i).each do |i| %>
+                			<%= select_tag(:game_ids, options_for_select(@game, session["game_#{i}"].present? ? session["game_#{i}"].to_i : ""), :name =>"game_ids[]", :class => "form-control" ) %>
+                			<br/>
+                		<% end %> 
+                   	</tbody>               	                            						
 			</div>
-				<br/><br/>
-			<%= f.label :people_kid, "Jumlah Anak : ", :class => "control-label col-sm-3" %>
+				<br/><br/><br/>
+			<%= f.label :kid_count, "Jumlah Anak : ", :class => "control-label col-sm-4" %>
 			<div class="col-sm-8">
-				<%= f.text_field :people_kid, :class => 'form-control', :placeholder=>'Masukan Isi Berita'%>				
+				<%= f.text_field :kid_count, :class => 'form-control', :placeholder=>'Jumlah Anak'%>
+				<%= @reservation.errors[:kid_count].first unless @reservation.errors[:kid_count].blank? %>				
 			</div>
-				<br/><br/>
-				<%= f.label :id_food_kid, "Makan Anak : ", :class => "control-label col-sm-3" %>
+				<br/><br/><br/><br/>
+					<%= f.label :food_kid, "Makan Anak : ", :class => "control-label col-sm-4" %>
+			<div class="col-sm-8">				
+					<%= select_tag "food_kids[]", options_from_collection_for_select(@food, "id", "name",session[:session_food_kid].present? ? session[:session_food_kid].to_i : ""), :class => "form-control"%>								
+			</div>					
+					<br/><br/>		
+			<%= f.label :adult_count, "Jumlah Dewasa : ", :class => "control-label col-sm-4" %>
 			<div class="col-sm-8">
-				<%= select("reservation", "id_food_kid", FoodKid.find(:all).collect {|p| [ p.content, p.id ] })%>				
+				<%= f.text_field :adult_count, :class => 'form-control', :placeholder=>'Jumlah Dewasa'%>
+				<%= @reservation.errors[:adult_count].first unless @reservation.errors[:adult_count].blank? %>				
 			</div>
-				<br/><br/>								
-			<%= f.label :people_adult, "Jumlah Dewasa : ", :class => "control-label col-sm-3" %>
-			<div class="col-sm-8">
-				<%= f.text_field :people_adult, :class => 'form-control', :placeholder=>'Masukan Isi Berita'%>				
+			<br/><br/>
+			<%= f.label :food_adult, "Makan Dewasa : ", :class => "control-label col-sm-4" %>
+			<div class="col-sm-8">				
+					<%= select_tag "food_adults[]", options_from_collection_for_select(@foodadult, "id", "name",session[:session_food_adult].present? ? session[:session_food_adult].to_i : ""), :class => "form-control"%>								
 			</div>
-				<br/><br/>			
-			<%= f.label :id_food_adult, "Makan Dewasa : ", :class => "control-label col-sm-3" %>
-			<div class="col-sm-8">
-				<%= select("reservation", "id_food_adult", FoodAdult.find(:all).collect {|p| [ p.content, p.id ] })%>			
-			</div>
-				<br/><br/>
-			<%= f.label :id_additional_packet, "Paket Tambahan : ", :class => "control-label col-sm-3" %>
-			<div class="col-sm-7">													
+				<br/><br/>									
+			<%= f.label :additional_packet_id, "Paket Tambahan : ", :class => "control-label col-sm-4" %>
+			<div class="col-sm-8">													
                     <tbody>
                     	<% @additional_packet.each do |additional_packet|%>
                               <tr>
-                               	<td><%= check_box_tag "additional_packet_id[]", additional_packet.id %></td>
-                               	<td><%= additional_packet.content %></td>
+                               	<td><%= check_box_tag "additional_packet_ids[]", additional_packet.id %>&nbsp;<%= additional_packet.content %></td>                               	                               
                                	<div class="container col-sm-3 side pull-right ">
                                	<td><%= additional_packet.price %></td>
                                	</div> 
@@ -74,10 +64,11 @@
                            	</tr>
                    	</tbody>                           					
 			</div>
-
-				
-			<br/><br/><br/>		
-			<%= f.submit "Simpan", :class => 'btn btn-default '%>
+		<br/><br/><br/>	<br/><br/><br/>				
+			<%= link_to 'Kembali',edit_customer_path(session[:session_customer].blank? ? 0 : session[:session_customer]), :class => 'btn btn-primary' %>
+			<div class="container col-sm-2 side pull-right ">
+			<%= f.submit "Kirim", :class => 'btn btn-primary'%>
+			</div>
 			<% end %>
 					
 			</div>
@@ -85,3 +76,19 @@
 			</div>
 		</div>
 	</div>
+<style>
+	.addStyle{
+		margin: -390px auto 0 430px;
+	}
+</style>	
+<script type="text/javascript">
+  $(function() {
+    $('#datetimepicker1').datetimepicker({
+     language: 'pt-BR'
+    });
+    $(".bootstrap-datetimepicker-widget").addClass("addStyle");
+  });
+  $("#reservation_kid_count").click(function(){
+	  $(".bootstrap-datetimepicker-widget").hide();
+  })
+</script>

@@ -1,0 +1,26 @@
+<%= render 'navigation'%>
+ <!– berita terbaru –>
+ <div class="page-header">
+<h3>Galery Pakuhaji</h3>		
+</div>
+<div class="row">
+ <div class="container col-sm-6 side pull-right sidebar-offcanvas"  >       
+	 		<ul class="list-group">
+		 	 <li class="list-group-item">		 	 	
+	           <% @gallery.each do |gallery| %> 
+            <%=link_to image_tag(gallery.picture.url(:thumb)), gallery_show_home_path(gallery) %>            
+            <% end %>
+           		 </li>
+            	</ul>
+     </div>   
+          <div class="container col-sm-6 side pull-left sidebar-offcanvas"  > 
+	 		<ul class="list-group">
+		 	 <li class="list-group-item">
+            <%= link_to image_tag(@gallery_show_home.picture.url, :height => "450" )%>                       
+           		 </li>
+            	</ul>
+          	  </div> 
+</div>
+        
+<%= render 'footer'%>
+

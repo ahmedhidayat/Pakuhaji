@@ -1,0 +1,7 @@
+wb = xlsx_package.workbook
+wb.add_worksheet(name: "reservation") do |sheet|
+  sheet.add_row ["id", "Kode Pesanan" , "Tanggal Memesan ", "Tanggal Pesanan ", "Nama Pemesan", "Status"] ## Header values of Excel
+  @reservation.each do |reservation|
+  	sheet.add_row [reservation.id, reservation.transaction_code, reservation.created_at, reservation.date_booked, reservation.customer.name, reservation.status]
+  end  
+end

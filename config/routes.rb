@@ -5,6 +5,7 @@ Pakuhaji::Application.routes.draw do
   get "homes_game" => "homes#game", :as => "game_home"
   get "homes_packet" => "homes#packet", :as => "packet_home"
   get "homes_gallery" => "homes#gallery", :as => "gallery_home"
+  get "homes_gallery_show/:id" => "homes#gallery_show", :as => "gallery_show_home"
   
   
   get "sign_up" => "admins#new", :as => "sign_up"
@@ -20,11 +21,15 @@ Pakuhaji::Application.routes.draw do
  resources :galleries
  resources :sliders
  resources :vacation_packets
- resources :food_kids
- resources :food_adults
  resources :additional_packets
- resources :reservations
-
+ resources :reservations do
+   collection do 
+     get ':id/update_status' => "reservations#update_status", :as => "update_status"
+     get 'search' => "reservations#search", :as => "search"
+   end
+ end
+ resources :customers
+ resources :foods
  root :to => "homes#index"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

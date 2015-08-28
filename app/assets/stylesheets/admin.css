@@ -11,7 +11,8 @@
  *= require_self
  *= require_bootsrap-slider 
  *= require_bootstrap
- *= require_datepicker
+ *= require datepicker
+ *= require datepicker3
  *= require_styles
  */
 

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150614205907) do
+ActiveRecord::Schema.define(version: 20150817142511) do
 
   create_table "additional_packets", force: true do |t|
     t.text     "content"
@@ -35,6 +35,15 @@ ActiveRecord::Schema.define(version: 20150614205907) do
     t.string   "picture_content_type"
     t.integer  "picture_file_size"
     t.datetime "picture_updated_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "customers", force: true do |t|
+    t.string   "name"
+    t.string   "address"
+    t.string   "telephone"
+    t.string   "email"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -77,16 +86,9 @@ ActiveRecord::Schema.define(version: 20150614205907) do
     t.datetime "updated_at"
   end
 
-  create_table "food_adults", force: true do |t|
-    t.text     "content"
-    t.integer  "price"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "food_kids", force: true do |t|
-    t.text     "content"
-    t.integer  "price"
+  create_table "foods", force: true do |t|
+    t.string   "name"
+    t.string   "category"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -143,19 +145,39 @@ ActiveRecord::Schema.define(version: 20150614205907) do
     t.datetime "updated_at"
   end
 
+  create_table "reservation_additional_packets", force: true do |t|
+    t.integer  "reservation_id"
+    t.integer  "additional_packet_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "reservation_foods", force: true do |t|
+    t.string   "food_id"
+    t.string   "reservation_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "reservation_games", force: true do |t|
+    t.integer  "reservation_id"
+    t.integer  "game_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "reservations", force: true do |t|
-    t.datetime "date_now"
     t.datetime "date_booked"
-    t.integer  "id_vacation_packet"
-    t.integer  "id_game"
-    t.integer  "people_kid"
-    t.integer  "people_adult"
-    t.integer  "id_food_kid"
-    t.integer  "id_food_adult"
-    t.integer  "id_additional_packet"
+    t.integer  "vacation_packet_id"
+    t.integer  "kid_count"
+    t.integer  "adult_count"
     t.integer  "total"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "customer_id"
+    t.string   "additional_packet_id"
+    t.string   "status"
+    t.string   "transaction_code"
   end
 
   create_table "sliders", force: true do |t|

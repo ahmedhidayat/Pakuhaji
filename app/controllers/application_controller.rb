@@ -28,4 +28,13 @@ class ApplicationController < ActionController::Base
           session[:temporary_id] = temporary.id
           temporary
         end
+
+        def convert_to_arr_for_query(ids_param)
+          key_string = "("
+          ids_param.each do |x|
+            key_string << "#{x},"
+          end
+          key_string[key_string.length-1] = ")"
+          key_string
+        end
 end

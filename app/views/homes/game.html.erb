@@ -1,5 +1,4 @@
 <%= render 'navigation'%>
-<br/><br/><br/><br/><br/>
  <!– berita terbaru –>
  <div class="page-header">
 <h3>Permainan Pakuhaji</h3>		
@@ -18,6 +17,7 @@
 	 			</div>
 	 		 <%end%>	  
  		</div>
+
 	 </div>
-</div>
+<%= paginate @game, :window => 3 %>
 <%= render 'footer'%>

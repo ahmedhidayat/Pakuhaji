@@ -1,6 +1,6 @@
 class HomesController < ApplicationController
   def index
-    @article = Article.all
+    @article = Article.page(params[:page]) .per(3)
        if @sliders = Slider.find_by_id(nil)
       @sliders = Slider.find_by_id(1)
     else  
@@ -19,19 +19,24 @@ class HomesController < ApplicationController
   end
   
   def fasility
-    @fasility = Fasility.all
+    @fasility = Fasility.page(params[:page]) .per(3)
   end
   
   def game
-    @game = Game.all
+    @game = Game.page(params[:page]) .per(3)
   end
   
    def gallery
-    @gallery = Gallery.all
+    @gallery = Gallery.all   
   end
+    
+    def gallery_show
+      @gallery = Gallery.all
+      @gallery_show_home = Gallery.find_by_id(params[:id])
+    end
   
   def packet
-    @packet = Packet.all
+    @packet = Packet.page(params[:page]) .per(4)
   end
   
 end

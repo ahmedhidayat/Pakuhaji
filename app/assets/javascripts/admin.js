@@ -14,16 +14,9 @@
 //= require jquery_ujs
 //= require bootstrap
 //= require bootstrap-slider
-//= require turbolinks
-//= require bootstrap-datepicker
+
+//= require bootstrap-datetimepicker
 //= require bootstrap-table
 //= require chart-data
 //= require easypiechart
 //= require easypiechart-data
-
-
-
-
-
-
-

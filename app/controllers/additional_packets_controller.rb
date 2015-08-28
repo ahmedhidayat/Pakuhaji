@@ -2,7 +2,7 @@ class AdditionalPacketsController < ApplicationController
 before_action :check_current_admin, only: [:new, :create, :edit, :update, :destroy, :index]
   layout "admin_application"
   def index
-    @additional_packet = AdditionalPacket.all
+    @additional_packet = AdditionalPacket.page(params[:page]) .per(5)
   end
   
   def new

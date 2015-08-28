@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
          if !admin_password.blank?
             session[:admin] = admin.id
             flash[:notice] = "Wellcome #{admin.username}"
-            redirect_to admin
+            redirect_to admins_path
         else
             params[:username]
             flash[:error] = "Your data not valid"
@@ -21,9 +21,7 @@ class SessionsController < ApplicationController
     
     def destroy
     session[:admin] = nil
-
-        flash[:notice] = "logout session success"
-
-        redirect_to root_url
+    flash[:notice] = "logout session success"
+    redirect_to root_url
     end
 end

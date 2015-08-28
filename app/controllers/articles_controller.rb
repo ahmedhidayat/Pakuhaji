@@ -2,7 +2,7 @@ class ArticlesController < ApplicationController
   before_action :check_current_admin, only: [:new, :create, :edit, :update, :destroy, :index]
   layout "admin_application"
   def index
-    @article = Article.all
+    @article = Article.page(params[:page]) .per(5)
   end
   
   def new
@@ -35,6 +35,7 @@ class ArticlesController < ApplicationController
 
   def show
       @article = Article.find_by_id(params[:id])
+      render layout: "application"
   end
   
    def destroy

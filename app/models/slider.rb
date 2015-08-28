@@ -7,5 +7,5 @@ class Slider < ActiveRecord::Base
   validates_attachment_content_type :picture, 
                                       :content_type => /^image\/(png|gif|jpeg)/,
                                       :message => 'only (png/gif/jpeg/jpg) images'
-  validates_attachment_size :picture,  :in => 0..1024.kilobytes
+  validates_attachment_size :picture,  :in => 0..3024.kilobytes
 end

@@ -9,26 +9,25 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require_self
- *= require_tree .
+ *= require bootstrap
+ *= require datepicker
+ *= require datepicker3
+ *= require fancybox
+ *= require font-awesome
+ *= require animate
+ *= require main
+ *= require pretyPhoto
  */
+
 .article {
-  alignment-adjust:center;
-  border: solid 1px #CCC;
-  padding: 1px 1px;
-  margin-left: auto;
-    margin-right: auto;
-    width: 35%;
-  margin-bottom: 2px;
-   width: 600px;
-    height: 100px;
+  
 }
 
 .article .title {
   float: right;
-  margin-right: 70px;
-  padding-top: 5px;
+  margin-right: 300px;
+  
   text-indent: 10px;
-  text-align: center;
   font-weight: bold;
 }
 
@@ -40,7 +39,94 @@
 
 .article .content {
   font-size: 12px;
-  text-align: center;
-  color: #777;
+  color: #777; 
+  float: right;
+  margin-right: 115px;
+  text-indent: 10px;
+  font-weight: bold; 
+}
+
+.fasility {
+  alignment-adjust:center;
+  border: solid 1px #CCC;
+  padding: 1px 1px;
+  margin-bottom: 30px;
+  width: 800px;
+  height: 300px;
+  
+}
+
+.fasilityhome {
+  alignment-adjust:center;
+  border: solid 1px #CCC;
+  padding: 1px 1px;
+  margin-bottom: 2px;
+  width: 350px;
+  height: 200px;
+}
+
+.fasility .title {
+  top : 10px
+  text-indent: 10px;
+  font-weight: bold;
+}
+
+.fasility .content {
+  font-size: 12px;
+  color: #777;  
+   
+}
+
+.fasility .image {
+  width: 150px;
+  height: 150px;
+  background-color: #B6B6B6;
+}
+
+.gamehome {
+  alignment-adjust:center;
+  border: solid 1px #CCC;
+  padding: 1px 1px;
+  margin-bottom: 2px;
+  width: 350px;
+  height: 200px;
+}
+
+.profile {
+  alignment-adjust:center;
+  border: solid 1px #CCC;
+  padding: 1px 1px;
+ 
+  margin-bottom: 2px;
+   width: 500px;
+    height: 250px;
+}
+
+.packet {
+  alignment-adjust:center;
+  border: solid 1px #CCC;
+  padding: 1px 1px;
+  margin-bottom: 20px;
+  width: 500px;
+  height: 100px;
+}
+
+.packet .title {
+  float: right;
+  margin-right: 80px;
+  top : 10px
+  text-indent: 10px;
+  font-weight: bold;
+}
+
+.packet .image {
+  width: 150px;
+  height: 150px;
+  background-color: #B6B6B6;
+}
+
+.packet .content {
+  font-size: 12px;
+  color: #777;  
 }
 

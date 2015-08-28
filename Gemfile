@@ -22,7 +22,7 @@ gem 'coffee-rails', '~> 4.0.0'
 gem 'jquery-rails'
 
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
-gem 'turbolinks'
+#gem 'turbolinks'
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'
@@ -47,9 +47,23 @@ gem 'bcrypt-ruby', require: 'bcrypt'
 #gem bootstrap datetime picker
 gem 'bootstrap-datetimepicker-rails'
 
+#gem debugger
 gem 'debugger'
 
+#gem paginate
+gem 'kaminari'
 
+#gem font awesome
+gem 'font-awesome-rails'
+
+#gem export
+gem 'axlsx_rails'
+gem 'acts_as_xlsx'
+gem 'axlsx'
+
+
+gem 'rails_12factor', group: "production"
+gem 'thin'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'
